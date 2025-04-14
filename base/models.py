@@ -13,6 +13,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
 
+
 class Topic(models.Model):
     name = models.CharField(max_length=200)
 
@@ -37,6 +38,7 @@ class Room(models.Model):
         return self.name
 
 
+
 class Message(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
@@ -48,5 +50,4 @@ class Message(models.Model):
         ordering = ['-updated', '-created']
 
     def __str__(self):
-        return self.body[0:50
-        
+        return self.body[0:50]
